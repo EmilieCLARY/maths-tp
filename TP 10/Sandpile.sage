@@ -17,7 +17,7 @@ class Sandpile():
 
     
   def show(self):
-    return matrix_plot(self.mat, cmap='Blues', colorbar=True, colorbar_options={'shrink':0.5})
+    return matrix_plot(self.mat, cmap='Reds', colorbar=True, colorbar_options={'shrink':0.5})
 
   def topple(self, i, j):
     ligne = self.mat.nrows()
@@ -41,20 +41,20 @@ class Sandpile():
         print("Une erreur s'est produite")
 
   def stabilize(self):
-      toutStable = True
+      stable = True
       compt = 0
       ligne = self.mat.nrows()
       colonne = self.mat.ncols()
       
-      while (toutStable):
-          toutStable = false
+      while (stable):
+          stable = false
           for i in range(ligne):
               for j in range(colonne):
                   if (self.mat[(i,j)] >= 4):
-                      toutStable = True
+                      stable = True
                       compt += 1
                       self.topple(i,j)
-      print("Stabilisation après "+str(compt)+" tupples.")
+      print("Stabilisation après " + str(compt)+ " tupples.")
 
   def mat21(self, valeur_centrale): 
     ligne = self.mat.nrows()
